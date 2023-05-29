@@ -3,11 +3,17 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   background-color: #edeff3;
   opacity: 1;
   background-size: 34px 34px;
-  background-image:  repeating-linear-gradient(to right, #000000, #000000 1.7000000000000002px, #edeff3 1.7000000000000002px, #edeff3);;
+  background-image: repeating-linear-gradient(
+    to right,
+    #000000,
+    #000000 1.7000000000000002px,
+    #edeff3 1.7000000000000002px,
+    #edeff3
+  );
   display: flex;
   text-align: center;
   justify-content: center;
@@ -15,7 +21,8 @@ body {
 }
 
 form {
-  width: 40rem;
+  max-width: 40rem;
+  min-width: 30rem;
   height: auto;
   margin: 0 auto;
   background-color: white;
@@ -38,10 +45,10 @@ label {
 
 input,
 select {
-font-family:'Dosis', sans-serif;
-font-size: 15px;
-height: 25px;
-width: 9rem;
+  font-family: "Dosis", sans-serif;
+  font-size: 15px;
+  height: 25px;
+  width: 9rem;
 }
 
 .name-input,
@@ -60,7 +67,7 @@ button {
   width: 10rem;
   height: 3rem;
   margin-bottom: 2rem;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 2px;
@@ -71,7 +78,8 @@ button {
   cursor: pointer;
   border: 3px solid;
   padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
@@ -89,8 +97,7 @@ button:active {
     padding: 0.25em 0.75em;
   }
 }
-  
+
 .error {
   font-size: 12px;
-  
 }
