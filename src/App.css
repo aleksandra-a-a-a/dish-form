@@ -1,38 +1,96 @@
-.App {
+body {
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Dosis', sans-serif;
+  background-color: #edeff3;
+  opacity: 1;
+  background-size: 34px 34px;
+  background-image:  repeating-linear-gradient(to right, #000000, #000000 1.7000000000000002px, #edeff3 1.7000000000000002px, #edeff3);;
+  display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+form {
+  width: 40rem;
+  height: auto;
+  margin: 0 auto;
+  background-color: white;
+  padding: 1rem;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inputs {
+  padding: 2.5rem;
+  text-align: justify;
+  line-height: 40px;
   display: flex;
   flex-direction: column;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input,
+select {
+font-family:'Dosis', sans-serif;
+font-size: 15px;
+height: 25px;
+width: 9rem;
+}
+
+.name-input,
+.preparation-input,
+.type-input,
+.slices-input,
+.diameter-input,
+.spicy-input,
+.bread-input {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  width: 10rem;
+  height: 3rem;
+  margin-bottom: 2rem;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  background: rgb(127, 225, 160);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0.25em 0.75em;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+  
+.error {
+  font-size: 12px;
+  
 }
