@@ -1,26 +1,26 @@
 import { useState } from "react";
-import moment from "moment";
+import moment from "moment"; // library for %H:%M:%S format
 import "./App.css";
 
 function App() {
   const [name, setName] = useState("");
-  const [preparationTime, setPreparationTime] = useState("00:00:00");
+  const [preparationTime, setPreparationTime] = useState("");
   const [type, setType] = useState("");
-  const [noOfSlices, setNoOfSlices] = useState(0);
-  const [diameter, setDiameter] = useState(0);
-  const [spicinessScale, setSpicinessScale] = useState(0);
+  const [noOfSlices, setNoOfSlices] = useState("");
+  const [diameter, setDiameter] = useState("");
+  const [spicinessScale, setSpicinessScale] = useState("");
   const [slicesOfBread, setSlicesOfBread] = useState(0);
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function refreshPage() {
     window.location.reload(false);
-  }
+  } // on click ("add more!" button)
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform validation
+    // Error handling
     const newErrors = {};
     if (!name) newErrors.name = "Name is required.";
     if (!preparationTime)
@@ -100,104 +100,137 @@ function App() {
       <h1>HexOcean Cookbook 👩‍🍳</h1>
       <div className="inputs">
         <div className="name-input">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          {errors.name && <span className="error">{errors.name}</span>}
+          <div className="input-prop">
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            {errors.name && <span className="error">{errors.name}</span>}
+          </div>
         </div>
         <div className="preparation-input">
-          <label htmlFor="preparationTime">Preparation Time:</label>
-          <input
-            type="text"
-            id="preparationTime"
-            value={preparationTime}
-            onChange={(e) => setPreparationTime(e.target.value)}
-          />
-          {errors.preparationTime && (
-            <span className="error">{errors.preparationTime}</span>
-          )}
+          <div className="input-prop">
+            <label htmlFor="preparationTime">Preparation Time:</label>
+            <input
+              placeholder="00:00:00"
+              type="text"
+              id="preparationTime"
+              value={preparationTime}
+              onChange={(e) => setPreparationTime(e.target.value)}
+            />
+          </div>
+          <div>
+            {errors.preparationTime && (
+              <span className="error">{errors.preparationTime}</span>
+            )}
+          </div>
         </div>
+
         <div className="type-input">
-          <label htmlFor="type">Type:</label>
-          <select
-            id="type"
-            value={type}
-            onChange={(e) => setType(e.target.value)}
-          >
-            <option value="">Select type</option>
-            <option value="pizza">Pizza 🍕</option>
-            <option value="soup">Soup 🍲</option>
-            <option value="sandwich">Sandwich 🥪</option>
-          </select>
-          {errors.type && <span className="error">{errors.type}</span>}
+          <div className="input-prop">
+            <label htmlFor="type">Type:</label>
+            <select
+              id="type"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <option value="">Select type</option>
+              <option value="pizza">Pizza 🍕</option>
+              <option value="soup">Soup 🍲</option>
+              <option value="sandwich">Sandwich 🥪</option>
+            </select>
+          </div>
+          <div>
+            {errors.type && <span className="error">{errors.type}</span>}
+          </div>
         </div>
 
         {type === "pizza" && (
           <div className="slices-input">
-            <label htmlFor="noOfSlices">Number of Slices:</label>
-            <input
-              type="number"
-              id="noOfSlices"
-              min="1"
-              value={noOfSlices}
-              onChange={(e) => setNoOfSlices(parseInt(e.target.value))}
-            />
-            {errors.noOfSlices && (
-              <span className="error">{errors.noOfSlices}</span>
-            )}
+            <div className="input-prop">
+              <label htmlFor="noOfSlices">Number of Slices:</label>
+              <input
+                placeholder="0"
+                type="number"
+                id="noOfSlices"
+                min="1"
+                value={noOfSlices}
+                onChange={(e) => setNoOfSlices(parseInt(e.target.value))}
+              />
+            </div>
+            <div>
+              {errors.noOfSlices && (
+                <span className="error">{errors.noOfSlices}</span>
+              )}
+            </div>
           </div>
         )}
 
         {type === "pizza" && (
           <div className="diameter-input">
-            <label htmlFor="diameter">Diameter:</label>
-            <input
-              type="number"
-              id="diameter"
-              min="1"
-              value={diameter}
-              onChange={(e) => setDiameter(parseFloat(e.target.value))}
-            />
-            {errors.diameter && (
-              <span className="error">{errors.diameter}</span>
-            )}
+            <div className="input-prop">
+              <label htmlFor="diameter">Diameter:</label>
+              <input
+                placeholder="0"
+                type="number"
+                id="diameter"
+                min="1"
+                value={diameter}
+                onChange={(e) => setDiameter(parseFloat(e.target.value))}
+              />
+            </div>
+            <div>
+              {errors.diameter && (
+                <span className="error">{errors.diameter}</span>
+              )}
+            </div>
           </div>
         )}
 
         {type === "soup" && (
           <div className="spicy-input">
-            <label htmlFor="spicinessScale">Spiciness Scale:</label>
-            <input
-              type="number"
-              id="spicinessScale"
-              min="1"
-              max="10"
-              value={spicinessScale}
-              onChange={(e) => setSpicinessScale(parseInt(e.target.value))}
-            />
-            {errors.spicinessScale && (
-              <span className="error">{errors.spicinessScale}</span>
-            )}
+            <div className="input-prop">
+              <label htmlFor="spicinessScale">Spiciness Scale:</label>
+              <input
+                placeholder="1"
+                type="number"
+                id="spicinessScale"
+                min="1"
+                max="10"
+                value={spicinessScale}
+                onChange={(e) => setSpicinessScale(parseInt(e.target.value))}
+              />
+            </div>
+            <div>
+              {errors.spicinessScale && (
+                <span className="error">{errors.spicinessScale}</span>
+              )}
+            </div>
           </div>
         )}
 
         {type === "sandwich" && (
           <div className="bread-input">
-            <label htmlFor="slicesOfBread">Number of Slices of Bread:</label>
-            <input
-              type="number"
-              id="slicesOfBread"
-              min="0"
-              value={slicesOfBread}
-              onChange={(e) => setSlicesOfBread(parseInt(e.target.value))}
-            />
-            {errors.slicesOfBread && (
-              <span className="error">{errors.slicesOfBread}</span>
-            )}
+            <div className="input-prop">
+              <label htmlFor="slicesOfBread">Number of Slices of Bread:</label>
+              <input
+                type="number"
+                id="slicesOfBread"
+                min="0"
+                value={slicesOfBread}
+                onChange={(e) => setSlicesOfBread(parseInt(e.target.value))}
+              />
+            </div>
+            <div>
+              {errors.slicesOfBread && (
+                <span className="error">{errors.slicesOfBread}</span>
+              )}
+            </div>
           </div>
         )}
       </div>

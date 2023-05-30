@@ -21,8 +21,7 @@ body {
 }
 
 form {
-  max-width: 40rem;
-  min-width: 30rem;
+  min-width: 10rem;
   height: auto;
   margin: 0 auto;
   background-color: white;
@@ -60,7 +59,8 @@ select {
 .bread-input {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 button {
@@ -92,12 +92,23 @@ button:active {
   left: 5px;
 }
 
+.error {
+  font-size: 12px;
+}
+
+.input-prop {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
 @media (min-width: 768px) {
   button {
     padding: 0.25em 0.75em;
   }
-}
-
-.error {
-  font-size: 12px;
 }
